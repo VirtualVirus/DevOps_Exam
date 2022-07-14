@@ -6,8 +6,9 @@ There are list of questions related to below Topics. You have to attend all of t
   1. Docker
   2. Kubernetes
   3. Terraform
-  4. Jenkins CI/CD
-  5. AWS
-  6. GCP
-  7. Shell Scripting
-  8. Python
+  4. GIT
+  5. Jenkins CI/CD
+  6. AWS
+  7. GCP
+  8. Shell Scripting
+  9. Python
