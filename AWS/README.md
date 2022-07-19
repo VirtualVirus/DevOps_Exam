@@ -231,7 +231,7 @@ Failover | Route 53 | [Exercise](route_53_failover.md) | [Solution](solutions/ro
 ##### AWS EC2 - AMI
 
 <details>
-<summary>What is AMI?</summary><br><b>
+<summary>What is AMI?</summary><br>
 </details>
 
 <details>
