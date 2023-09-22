@@ -1,0 +1,40 @@
+import json
+import requests
+
+# Confluence API credentials and page information
+CONFLUENCE_API_URL = "https://your-confluence-instance/wiki/rest/api/content/PAGE_ID"
+USERNAME = "your_username"
+PASSWORD = "your_password"
+
+# Load JSON data from a file (replace 'data.json' with your JSON file)
+with open("data.json", "r") as json_file:
+    data = json.load(json_file)
+
+# Create a table from JSON data
+table_html = "<table><tr><th>Header 1</th><th>Header 2</th></tr>"
+for item in data:
+    table_html += f"<tr><td>{item['field1']}</td><td>{item['field2']}</td></tr>"
+table_html += "</table>"
+
+# Authenticate with Confluence API
+auth = (USERNAME, PASSWORD)
+
+# Define the payload to update the Confluence page with the table
+payload = {
+    "version": {"number": 1},
+    "title": "Page Title",  # Replace with your page title
+    "type": "page",
+    "body": {
+        "storage": {"value": table_html, "representation": "storage"}
+    }
+}
+
+# Update the Confluence page with the table
+response = requests.put(CONFLUENCE_API_URL, json=payload, auth=auth, headers={"Content-Type": "application/json"})
+
+# Check if the update was successful
+if response.status_code == 200:
+    print("Table created successfully in Confluence.")
+else:
+    print(f"Failed to create the table. Status code: {response.status_code}")
+    print(response.text)
